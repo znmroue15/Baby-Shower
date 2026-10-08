@@ -81,8 +81,8 @@ button[hidden]{display:none}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 [hidden]{display:none!important}
 .fallback{margin-top:16px;color:var(--soft);font-size:1.02rem;overflow-wrap:anywhere}
-#out{display:none;margin-top:20px;text-align:left}
-#out.show{display:block}
+#out{margin-top:20px;text-align:left}
+@media(max-width:520px){#out .solid{display:block;width:100%;text-align:center;margin-top:12px}}
 #msg{white-space:pre-wrap;background:var(--blush);border-radius:12px;padding:14px;font-size:1.05rem}
 footer{text-align:center;margin-top:34px;font:600 1.7rem 'Dancing Script',cursive;color:var(--terra)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
@@ -133,7 +133,7 @@ footer{text-align:center;margin-top:34px;font:600 1.7rem 'Dancing Script',cursiv
 
   <section class="panel" id="rsvp">
     <h2>RSVP</h2>
-    <p>Let us know if you can join us on Sunday, November 15.</p>
+    <p id="rsvp-intro">Let us know if you can join us on Sunday, November 15.</p>
     <form id="rsvp-form">
       <div><label for="name">Your name</label><input type="text" id="name" required autocomplete="name"></div>
       <fieldset>
@@ -152,6 +152,10 @@ footer{text-align:center;margin-top:34px;font:600 1.7rem 'Dancing Script',cursiv
     </form>
     <div id="out" aria-live="polite" hidden>
       <p id="out-h"></p>
+      <div id="reg-note">
+        <p>While you wait, feel free to peek at our baby registry. Your love means the world to us, and anything on it is just a sweet bonus.</p>
+        <a class="solid" href="https://my.babylist.com/zainab-mroue" target="_blank" rel="noopener">SEE THE REGISTRY</a>
+      </div>
       <div class="cal" id="cal">
         <h3>Add it to your calendar</h3>
         <a class="solid" id="cal-g" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Baby+Shower+for+Zainab+%28Our+Sweetest+Recipe%29&amp;dates=20261115T140000/20261115T170000&amp;ctz=America/Detroit&amp;location=Flower+Boutique+Event+Space%2C+626+N.+Telegraph+Rd.%2C+Dearborn%2C+MI+48128&amp;details=Ladies+only+event.+Doors+at+2%3A00+PM." target="_blank" rel="noopener">GOOGLE CALENDAR</a>
@@ -199,8 +203,14 @@ form.addEventListener('submit',async e=>{
       website:document.getElementById('website').value})});
     if(!r.ok) throw new Error('bad');
     form.hidden=true; out.hidden=false;
-    if(att==='yes'){ outH.textContent="You're on the list, "+name+"! We can't wait to see you."; }
-    else { outH.textContent="Thank you for letting us know, "+name+". We'll miss you!"; document.getElementById('cal').hidden=true; }
+    if(att==='yes'){
+      document.getElementById('rsvp-intro').textContent="Thank you, "+name+"! We can't wait to celebrate with you on Sunday, November 15.";
+      outH.textContent="Your RSVP is in, and we're so happy you'll be there. Add the shower to your calendar so you don't miss a minute of the sweetness.";
+    }
+    else {
+      document.getElementById('rsvp-intro').textContent="Thank you for letting us know, "+name+". We'll miss you on Sunday, November 15, and we're grateful you thought of us.";
+      outH.textContent=''; document.getElementById('cal').hidden=true; document.getElementById('reg-note').hidden=true;
+    }
     out.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'});
   }catch(err){
     note_.textContent="Sorry, something went wrong and your RSVP didn't go through. Please try again, or text 313-706-9543.";

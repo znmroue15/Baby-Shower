@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>RSVP Tracker · Baby Shower</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--page:#F6D4B6;--card:#FFF8F0;--ink:#5A3A33;--soft:#8B6459;--line:#E3B9A8;--terra:#BF5B3A;--rose:#D9839A;--blush:#F8D9D9;--mustard:#D9A33F;--olive:#8C8A4E;--amber:#C9792F;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#2D1C1F;--card:#3B2629;--ink:#FBE9DF;--soft:#DDB9AC;--line:#6E4A47;--blush:#5B3840}}
+:root[data-theme="dark"]{--page:#2D1C1F;--card:#3B2629;--ink:#FBE9DF;--soft:#DDB9AC;--line:#6E4A47;--blush:#5B3840}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--ink);font:500 1.12rem/1.55 'Cormorant Garamond',Georgia,serif;
+  background-image:radial-gradient(circle at 8% 4%,rgba(217,131,154,.4),transparent 38%),radial-gradient(circle at 96% 30%,rgba(217,163,63,.4),transparent 40%),radial-gradient(circle at 50% 100%,rgba(191,91,58,.35),transparent 45%);background-attachment:fixed}
+.wrap{max-width:640px;margin:0 auto;padding:28px 14px 56px}
+h1{font:700 clamp(2.2rem,9vw,3rem)/1.05 'Dancing Script',cursive;color:var(--terra);margin:0;text-align:center}
+[hidden]{display:none!important}
+.sub{text-align:center;color:var(--soft);margin:4px 0 22px}
+.tally{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.t{background:var(--card);border-radius:16px;padding:14px 8px;text-align:center;box-shadow:0 0 0 1px var(--line)}
+.t b{display:block;font:700 2.4rem/1 'Dancing Script',cursive}
+.t span{font-size:.95rem;color:var(--soft)}
+.t.main b{color:var(--terra)} .t.yes b{color:var(--olive)} .t.no b{color:var(--rose)}
+.panel{margin-top:22px;background:var(--card);border-radius:18px;box-shadow:0 0 0 1px var(--line),0 10px 26px rgba(90,58,51,.12);padding:22px 20px}
+h2{font:700 1.7rem/1.1 'Dancing Script',cursive;color:var(--terra);margin:0 0 12px}
+form{display:grid;gap:12px}
+label,legend{display:block;font:600 1.1rem 'Cormorant Garamond',serif;color:var(--amber);margin-bottom:3px;padding:0}
+fieldset{border:0;margin:0;padding:0}
+input[type=text],input[type=password],select,textarea{width:100%;font:500 1.08rem 'Cormorant Garamond',serif;color:var(--ink);background:var(--blush);border:1.5px solid var(--line);border-radius:12px;padding:9px 13px}
+textarea{min-height:70px;resize:vertical}
+.row{display:grid;gap:12px}@media(min-width:480px){.row{grid-template-columns:1fr 1fr}}
+.choices{display:flex;gap:10px;flex-wrap:wrap}
+.choices label{display:flex;align-items:center;gap:8px;margin:0;padding:9px 14px;border:1.5px solid var(--line);border-radius:12px;color:var(--ink);font-weight:500;cursor:pointer}
+.choices input{accent-color:var(--terra)}
+.choices label:has(input:checked){border-color:var(--terra);background:var(--blush)}
+button{font:500 .85rem 'Jost',sans-serif;letter-spacing:.14em;cursor:pointer}
+.solid{background:var(--terra);color:#fff;border:0;border-radius:999px;padding:12px 24px;justify-self:start}
+.ghost{background:none;border:1.5px solid var(--line);color:var(--soft);border-radius:999px;padding:6px 12px;font-size:.75rem}
+.ghost.arm{border-color:var(--terra);color:var(--terra)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--mustard);outline-offset:2px}
+ul{list-style:none;margin:0;padding:0}
+li.g{display:flex;gap:12px;justify-content:space-between;align-items:flex-start;padding:12px 0;border-top:1px dashed var(--line)}
+li.g:first-child{border-top:0}
+.nm{font-weight:600;font-size:1.2rem}.pt{color:var(--terra);font-style:italic}.nt{color:var(--soft);font-size:1rem;margin-top:2px;overflow-wrap:anywhere}
+.empty{color:var(--soft);font-style:italic;margin:0}
+#banner{display:none;margin-bottom:14px;padding:10px 14px;border:1.5px dashed var(--terra);border-radius:12px;color:var(--terra);background:var(--card)}
+#banner.show{display:block}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>RSVP Tracker</h1>
+  <p class="sub">New RSVPs show up here automatically and are also emailed to you.</p>
+  <div id="banner" role="status"></div>
+  <section class="panel" id="login">
+    <h2>Hosts only</h2>
+    <form id="lf"><div><label for="pw">Password</label><input type="password" id="pw" autocomplete="current-password"></div>
+      <button type="submit" class="solid">OPEN TRACKER</button></form>
+  </section>
+  <div id="app" hidden>
+
+  <div class="tally" aria-live="polite">
+    <div class="t main"><b id="n-guests">0</b><span>guests coming</span></div>
+    <div class="t yes"><b id="n-yes">0</b><span>replied yes</span></div>
+    <div class="t no"><b id="n-no">0</b><span>can't make it</span></div>
+  </div>
+
+  <section class="panel">
+    <h2>Add an RSVP</h2>
+    <form id="f">
+      <div><label for="paste">Paste an RSVP message to fill this in (optional)</label><textarea id="paste" placeholder="Paste the email or text you received"></textarea></div>
+      <div class="row">
+        <div><label for="name">Name</label><input type="text" id="name" required></div>
+        <div><label for="guests">Guests, including them</label><select id="guests"><option>1</option><option>2</option><option>3</option></select></div>
+      </div>
+      <fieldset><legend>Attending?</legend>
+        <div class="choices">
+          <label><input type="radio" name="att" value="yes" checked> Yes</label>
+          <label><input type="radio" name="att" value="no"> No</label>
+        </div></fieldset>
+      <div><label for="note">Note (optional)</label><input type="text" id="note"></div>
+      <button type="submit" class="solid">ADD TO LIST</button>
+    </form>
+  </section>
+
+  <section class="panel"><h2>Coming</h2><ul id="yes-list"></ul></section>
+  <section class="panel"><h2>Can't make it</h2><ul id="no-list"></ul></section>
+  </div>
+</div>
+
+<script>
+let items=[], key=sessionStorage.getItem('tk')||'';
+const $=id=>document.getElementById(id);
+function banner(t){const b=$('banner'); b.textContent=t; b.classList.add('show');}
+function render(){
+  const yes=items.filter(i=>i.att==='yes'), no=items.filter(i=>i.att!=='yes');
+  $('n-guests').textContent=yes.reduce((a,i)=>a+(+i.guests||1),0);
+  $('n-yes').textContent=yes.length; $('n-no').textContent=no.length;
+  fill('yes-list',yes); fill('no-list',no);
+}
+function fill(id,arr){
+  const ul=$(id); ul.replaceChildren();
+  if(!arr.length){const p=document.createElement('p'); p.className='empty'; p.textContent='Nobody yet.'; ul.appendChild(p); return;}
+  arr.forEach(i=>{
+    const li=document.createElement('li'); li.className='g';
+    const left=document.createElement('div'), nm=document.createElement('div'); nm.className='nm'; nm.textContent=i.name;
+    if(i.att==='yes'){const pt=document.createElement('span'); pt.className='pt'; pt.textContent='  party of '+(i.guests||1); nm.appendChild(pt);}
+    left.appendChild(nm);
+    if(i.note){const n=document.createElement('div'); n.className='nt'; n.textContent=i.note; left.appendChild(n);}
+    const b=document.createElement('button'); b.type='button'; b.className='ghost'; b.textContent='REMOVE'; b.setAttribute('aria-label','Remove '+i.name);
+    let armed=false;
+    b.addEventListener('click',async()=>{
+      if(!armed){armed=true; b.textContent='SURE?'; b.classList.add('arm'); setTimeout(()=>{armed=false;b.textContent='REMOVE';b.classList.remove('arm')},3000); return;}
+      try{await api('DELETE',null,'?id='+encodeURIComponent(i.id)); await load();}catch(e){banner('Could not remove that entry. Try again.');}
+    });
+    li.append(left,b); ul.appendChild(li);
+  });
+}
+async function api(method,body,qs=''){
+  const r=await fetch('/api/admin'+qs,{method,headers:{'Content-Type':'application/json','x-tracker-key':key},body:body?JSON.stringify(body):undefined});
+  if(r.status===401){ sessionStorage.removeItem('tk'); $('app').hidden=true; $('login').hidden=false; throw new Error('auth'); }
+  if(!r.ok) throw new Error('fail');
+  return r.json();
+}
+async function load(){ const d=await api('GET'); items=d.items; render(); $('banner').classList.remove('show'); }
+$('lf').addEventListener('submit',async e=>{
+  e.preventDefault(); key=$('pw').value;
+  try{ await load(); sessionStorage.setItem('tk',key); $('login').hidden=true; $('app').hidden=false; }
+  catch(err){ banner(err.message==='auth'?'That password did not work.':'Could not reach the server. Try again.'); }
+});
+const f=$('f');
+$('paste').addEventListener('input',e=>{
+  const t=e.target.value; let m=t.match(/Yes!\s*(.+?)\s+will be there,?\s*party of\s*(\d+)/i);
+  if(m){f.name.value=m[1]; f.guests.value=Math.min(3,+m[2]); f.att.value='yes';}
+  else if((m=t.match(/:\s*(.+?)\s+is sorry/i))){f.name.value=m[1]; f.att.value='no';}
+  const n=t.match(/Note:\s*([^\n]*)/i); if(n) f.note.value=n[1].trim();
+});
+f.addEventListener('submit',async e=>{
+  e.preventDefault(); const att=f.att.value;
+  try{ await api('POST',{name:f.name.value.trim(),att,guests:att==='yes'?+f.guests.value:0,note:f.note.value.trim()}); f.reset(); await load(); }
+  catch(err){ banner('Could not save that RSVP. Try again.'); }
+});
+setInterval(()=>{ if(key && !$('app').hidden) load().catch(()=>{}); },30000);
+if(key){ load().then(()=>{$('login').hidden=true; $('app').hidden=false;}).catch(()=>{}); }
+</script>
+</body>
+</html>

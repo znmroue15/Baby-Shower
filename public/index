@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Our Sweetest Recipe · Baby Shower for Zainab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --page:#F6D4B6; --card:#FFF8F0; --ink:#5A3A33; --soft:#8B6459; --line:#E3B9A8;
+  --terra:#BF5B3A; --rose:#D9839A; --blush:#F8D9D9; --mustard:#D9A33F; --olive:#8C8A4E; --amber:#C9792F;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#2D1C1F;--card:#3B2629;--ink:#FBE9DF;--soft:#DDB9AC;--line:#6E4A47;--blush:#5B3840}}
+:root[data-theme="dark"]{--page:#2D1C1F;--card:#3B2629;--ink:#FBE9DF;--soft:#DDB9AC;--line:#6E4A47;--blush:#5B3840}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-height:100%;background:var(--page);color:var(--ink);font:500 1.15rem/1.6 'Cormorant Garamond',Georgia,serif;
+  background-image:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><g fill-opacity='.17'><path transform='translate(35 40) rotate(25) scale(1.3)' fill='%23BF5B3A' d='M0 -14C10 -6 10 8 0 16 -10 8 -10 -6 0 -14Z'/><path transform='translate(150 70) rotate(-50) scale(1.1)' fill='%23D9A33F' d='M0 -14C10 -6 10 8 0 16 -10 8 -10 -6 0 -14Z'/><path transform='translate(95 150) rotate(80) scale(1.2)' fill='%23D9839A' d='M0 -14C10 -6 10 8 0 16 -10 8 -10 -6 0 -14Z'/><path transform='translate(190 190) rotate(-15) scale(1)' fill='%238C8A4E' d='M0 -14C10 -6 10 8 0 16 -10 8 -10 -6 0 -14Z'/><path transform='translate(20 170) rotate(140) scale(0.9)' fill='%23C9792F' d='M0 -14C10 -6 10 8 0 16 -10 8 -10 -6 0 -14Z'/></g></svg>"),radial-gradient(circle at 8% 4%,rgba(217,131,154,.40),transparent 38%),radial-gradient(circle at 96% 30%,rgba(217,163,63,.42),transparent 40%),radial-gradient(circle at 50% 100%,rgba(191,91,58,.38),transparent 45%),radial-gradient(circle at 0% 70%,rgba(140,138,78,.22),transparent 40%);
+  background-attachment:fixed}
+.wrap{max-width:560px;margin:0 auto;padding:28px 14px 56px}
+svg.i{display:block}
+
+.card{background:var(--card);border-radius:260px 260px 18px 18px;padding:56px 26px 40px;text-align:center;position:relative;
+  box-shadow:0 0 0 1px var(--line),0 0 0 9px var(--card),0 0 0 10px var(--line),0 18px 40px rgba(90,58,51,.18)}
+
+.art{display:flex;align-items:flex-end;justify-content:center;gap:6px;margin:0 auto 8px}
+.art .leafcol{display:flex;gap:2px;align-items:flex-end}
+.garland{display:flex;justify-content:center;align-items:flex-end;gap:2px;margin:0 auto 4px}
+.sc{font:700 clamp(2.4rem,11vw,3.4rem)/1.05 'Dancing Script',cursive;color:var(--rose);margin:10px 0 0}
+.over{font:500 .95rem 'Jost',sans-serif;letter-spacing:.22em;color:var(--soft);margin:0}
+h1{font:italic 600 clamp(1.9rem,8vw,2.6rem)/1.1 'Cormorant Garamond',serif;color:var(--terra);margin:8px 0 18px}
+.honor{margin:0;color:var(--soft)}
+.names{font:700 clamp(2.2rem,10vw,3rem)/1.1 'Dancing Script',cursive;color:var(--amber);margin:4px 0 0}
+.ladies{font:italic 600 1.35rem/1.3 'Cormorant Garamond',serif;color:var(--terra);margin:8px 0 0}
+.rule{display:flex;align-items:center;gap:12px;margin:24px auto;max-width:300px;color:var(--mustard)}
+.rule::before,.rule::after{content:"";flex:1;border-top:1px solid var(--line)}
+.date{font:600 1.7rem/1.2 'Cormorant Garamond',serif;margin:0}
+.time{font:italic 600 1.5rem/1.3 'Cormorant Garamond',serif;color:var(--terra);margin:2px 0 14px}
+.venue{font-weight:600;font-size:1.3rem;margin:0}
+.addr{margin:0;color:var(--soft)}
+a.btn{display:inline-block;margin-top:22px;border:1.5px solid var(--terra);color:var(--terra);text-decoration:none;font:500 .85rem 'Jost',sans-serif;letter-spacing:.15em;padding:11px 24px;border-radius:999px;transition:background .15s,color .15s}
+a.btn:hover{background:var(--terra);color:#fff}
+a:focus-visible{outline:3px solid var(--mustard);outline-offset:3px}
+.bottom{display:flex;justify-content:center;align-items:flex-end;gap:10px;margin-top:30px}
+
+.ticket{margin-top:40px;background:var(--card);border-radius:20px;box-shadow:0 0 0 1px var(--line),0 12px 30px rgba(90,58,51,.14);text-align:center;overflow:visible}
+.t-top{padding:28px 24px 22px;background:var(--blush);border-radius:20px 20px 0 0}
+.t-top h2{font:700 clamp(2rem,9vw,2.6rem)/1.05 'Dancing Script',cursive;color:var(--terra);margin:0 0 6px}
+.t-top p{margin:0}
+.t-body{position:relative;border-top:2px dashed var(--line);padding:26px 24px 28px}
+.t-body::before,.t-body::after{content:"";position:absolute;top:-13px;width:24px;height:24px;border-radius:50%;background:var(--page)}
+.t-body::before{left:-12px}.t-body::after{right:-12px}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.steps li b{display:block;font:600 1.3rem 'Cormorant Garamond',serif;color:var(--amber)}
+.prize{margin:22px 0 0;padding:12px 16px;border:1.5px solid var(--mustard);border-radius:14px;font-weight:600;color:var(--terra)}
+
+.panel{margin-top:40px;background:var(--card);border-radius:20px;box-shadow:0 0 0 1px var(--line),0 12px 30px rgba(90,58,51,.14);text-align:center;padding:30px 24px 32px}
+.panel h2{font:700 clamp(2rem,9vw,2.6rem)/1.05 'Dancing Script',cursive;color:var(--terra);margin:0 0 10px}
+.panel p{margin:0 0 6px}
+.soon{display:inline-block;margin-top:14px;padding:10px 20px;border:1.5px dashed var(--line);border-radius:999px;color:var(--soft);font-style:italic}
+a.solid,button.solid{display:inline-block;margin-top:16px;background:var(--terra);color:#fff;border:0;text-decoration:none;font:500 .85rem 'Jost',sans-serif;letter-spacing:.15em;padding:13px 28px;border-radius:999px;cursor:pointer;transition:transform .15s}
+a.solid:hover,button.solid:hover{transform:translateY(-2px)}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--mustard);outline-offset:2px}
+form{text-align:left;margin-top:20px;display:grid;gap:16px}
+label,legend{display:block;font:600 1.15rem 'Cormorant Garamond',serif;color:var(--amber);margin-bottom:4px;padding:0}
+fieldset{border:0;margin:0;padding:0}
+input[type=text],select,textarea{width:100%;font:500 1.1rem 'Cormorant Garamond',serif;color:var(--ink);background:var(--blush);border:1.5px solid var(--line);border-radius:12px;padding:10px 14px}
+textarea{min-height:84px;resize:vertical}
+.choices{display:grid;gap:8px}
+@media(min-width:480px){.choices{grid-template-columns:1fr 1fr}}
+.choices label{display:flex;align-items:center;gap:10px;margin:0;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;color:var(--ink);font-weight:500;cursor:pointer}
+.choices input{accent-color:var(--terra);width:18px;height:18px}
+.choices label:has(input:checked){border-color:var(--terra);background:var(--blush)}
+.cal{margin-top:22px;padding-top:18px;border-top:1px dashed var(--line)}
+.cal h3{font:700 1.6rem/1.1 'Dancing Script',cursive;color:var(--terra);margin:0 0 4px}
+button[hidden]{display:none}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+[hidden]{display:none!important}
+.fallback{margin-top:16px;color:var(--soft);font-size:1.02rem;overflow-wrap:anywhere}
+#out{display:none;margin-top:20px;text-align:left}
+#out.show{display:block}
+#msg{white-space:pre-wrap;background:var(--blush);border-radius:12px;padding:14px;font-size:1.05rem}
+footer{text-align:center;margin-top:34px;font:600 1.7rem 'Dancing Script',cursive;color:var(--terra)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="leaf" viewBox="0 0 40 60"><path d="M20 2C35 16 37 40 20 58 3 40 5 16 20 2Z" fill="currentColor"/><path d="M20 12V56" stroke="#FFF8F0" stroke-opacity=".6" stroke-width="1.6" fill="none"/></symbol>
+  <symbol id="pumpkin" viewBox="0 0 100 90"><ellipse cx="32" cy="54" rx="27" ry="31" fill="currentColor"/><ellipse cx="68" cy="54" rx="27" ry="31" fill="currentColor"/><ellipse cx="50" cy="52" rx="22" ry="34" fill="currentColor" stroke="#FFF8F0" stroke-opacity=".55" stroke-width="2"/><path d="M46 20Q48 8 56 4" stroke="#8C8A4E" stroke-width="7" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="onesie" viewBox="0 0 100 104"><path d="M32 6L8 22 20 42 32 35V84Q32 98 46 98H54Q68 98 68 84V35L80 42 92 22 68 6Q50 24 32 6Z" fill="currentColor"/><path d="M50 74C40 66 38 58 44 55 47 54 50 56 50 58 50 56 53 54 56 55 62 58 60 66 50 74Z" fill="#FFF8F0"/></symbol>
+</svg>
+
+<div class="wrap">
+  <article class="card">
+    <div class="garland" aria-hidden="true">
+      <svg class="i" width="22" height="34" style="color:var(--mustard);transform:rotate(-35deg)"><use href="#leaf"/></svg>
+      <svg class="i" width="26" height="40" style="color:var(--terra);transform:rotate(-15deg)"><use href="#leaf"/></svg>
+      <svg class="i" width="30" height="46" style="color:var(--rose)"><use href="#leaf"/></svg>
+      <svg class="i" width="26" height="40" style="color:var(--olive);transform:rotate(15deg)"><use href="#leaf"/></svg>
+      <svg class="i" width="22" height="34" style="color:var(--amber);transform:rotate(35deg)"><use href="#leaf"/></svg>
+    </div>
+    <div class="art" aria-hidden="true">
+      <svg class="i" width="52" height="47" style="color:var(--amber)"><use href="#pumpkin"/></svg>
+      <svg class="i" width="86" height="90" style="color:var(--rose)"><use href="#onesie"/></svg>
+      <svg class="i" width="52" height="47" style="color:var(--terra)"><use href="#pumpkin"/></svg>
+    </div>
+
+    <p class="sc">Baby Shower</p>
+    <h1>Our Sweetest Recipe</h1>
+    <p class="honor">Join us in honor of</p>
+    <p class="names">Zainab</p>
+    <p class="ladies">A ladies only event</p>
+
+    <div class="rule" aria-hidden="true"><svg class="i" width="18" height="28" style="color:var(--mustard)"><use href="#leaf"/></svg></div>
+
+    <p class="date">Sunday, November 15</p>
+    <p class="time">at 2:00 in the afternoon</p>
+    <p class="venue">Flower Boutique Event Space</p>
+    <p class="addr">626 N. Telegraph Rd.<br>Dearborn, MI 48128</p>
+    <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Flower+Boutique+Event+Space+626+N+Telegraph+Rd+Dearborn+MI+48128" target="_blank" rel="noopener">GET DIRECTIONS</a>
+
+    <div class="bottom" aria-hidden="true">
+      <svg class="i" width="24" height="38" style="color:var(--olive);transform:rotate(-25deg)"><use href="#leaf"/></svg>
+      <svg class="i" width="36" height="32" style="color:var(--mustard)"><use href="#pumpkin"/></svg>
+      <svg class="i" width="24" height="38" style="color:var(--terra);transform:rotate(25deg)"><use href="#leaf"/></svg>
+    </div>
+  </article>
+
+  <section class="panel" id="rsvp">
+    <h2>RSVP</h2>
+    <p>Let us know if you can join us on Sunday, November 15.</p>
+    <form id="rsvp-form">
+      <div><label for="name">Your name</label><input type="text" id="name" required autocomplete="name"></div>
+      <fieldset>
+        <legend>Will you attend?</legend>
+        <div class="choices">
+          <label><input type="radio" name="att" value="yes" checked> Yes, I'll be there</label>
+          <label><input type="radio" name="att" value="no"> Sorry, I can't make it</label>
+        </div>
+      </fieldset>
+      <div id="guest-wrap"><label for="guests">Number of guests, including you</label>
+        <select id="guests"><option>1</option><option>2</option><option>3</option></select></div>
+      <div><label for="note">Note for the hosts (optional)</label><textarea id="note"></textarea></div>
+      <div class="hp" aria-hidden="true"><label>Website<input type="text" id="website" tabindex="-1" autocomplete="off"></label></div>
+      <button type="submit" class="solid">SEND RSVP</button>
+      <p id="err" role="alert" class="fallback"></p>
+    </form>
+    <div id="out" aria-live="polite" hidden>
+      <p id="out-h"></p>
+      <div class="cal" id="cal">
+        <h3>Add it to your calendar</h3>
+        <a class="solid" id="cal-g" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Baby+Shower+for+Zainab+%28Our+Sweetest+Recipe%29&amp;dates=20261115T140000/20261115T170000&amp;ctz=America/Detroit&amp;location=Flower+Boutique+Event+Space%2C+626+N.+Telegraph+Rd.%2C+Dearborn%2C+MI+48128&amp;details=Ladies+only+event.+Doors+at+2%3A00+PM." target="_blank" rel="noopener">GOOGLE CALENDAR</a>
+        <button type="button" class="solid" id="cal-ics">APPLE / OUTLOOK</button>
+        <p class="fallback">Apple/Outlook adds the shower plus a reminder on Monday, Nov 9 at 9:00 AM, and another the day before.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="registry">
+    <h2>Baby Registry</h2>
+    <p>Your company is the best gift. If you'd like to give something, we've put a registry together.</p>
+    <a class="solid" href="https://my.babylist.com/zainab-mroue" target="_blank" rel="noopener">VIEW OUR REGISTRY</a>
+  </section>
+
+  <section class="ticket">
+    <div class="t-top">
+      <h2>Diaper Raffle</h2>
+      <p>Help stock the nursery and take a chance on a prize. Joining is optional.</p>
+    </div>
+    <div class="t-body">
+      <ul class="steps">
+        <li><b>Bring a pack of diapers</b>Any size is welcome.</li>
+        <li><b>Get a raffle ticket</b>One ticket for each pack you bring.</li>
+        <li><b>Stay for the drawing</b>We'll pick a winner during the party.</li>
+      </ul>
+      <p class="prize">The winner takes home a prize.</p>
+    </div>
+  </section>
+
+  <footer>We can't wait to celebrate with you</footer>
+</div>
+<script>
+const form=document.getElementById('rsvp-form'), out=document.getElementById('out'), outH=document.getElementById('out-h');
+const guestWrap=document.getElementById('guest-wrap'), sendBtn=form.querySelector('button[type=submit]');
+const note_=document.getElementById('err');
+form.addEventListener('change',()=>{ guestWrap.style.display=form.att.value==='yes'?'':'none'; });
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const att=form.att.value, name=document.getElementById('name').value.trim();
+  sendBtn.disabled=true; sendBtn.textContent='SENDING...'; note_.textContent='';
+  try{
+    const r=await fetch('/api/rsvp',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+      name, att, guests:+document.getElementById('guests').value, note:document.getElementById('note').value.trim(),
+      website:document.getElementById('website').value})});
+    if(!r.ok) throw new Error('bad');
+    form.hidden=true; out.hidden=false;
+    if(att==='yes'){ outH.textContent="You're on the list, "+name+"! We can't wait to see you."; }
+    else { outH.textContent="Thank you for letting us know, "+name+". We'll miss you!"; document.getElementById('cal').hidden=true; }
+    out.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'});
+  }catch(err){
+    note_.textContent="Sorry, something went wrong and your RSVP didn't go through. Please try again, or text 313-706-9543.";
+    sendBtn.disabled=false; sendBtn.textContent='SEND RSVP';
+  }
+});
+document.getElementById('cal-ics').addEventListener('click',()=>{
+  const L=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Baby Shower//EN','BEGIN:VEVENT',
+   'UID:sweetest-recipe-20261115@babyshower','DTSTAMP:20261008T000000Z','DTSTART:20261115T140000','DTEND:20261115T170000',
+   'SUMMARY:Baby Shower for Zainab (Our Sweetest Recipe)',
+   'LOCATION:Flower Boutique Event Space\\, 626 N. Telegraph Rd.\\, Dearborn\\, MI 48128',
+   'DESCRIPTION:Ladies only event.',
+   'BEGIN:VALARM','TRIGGER:-P6DT5H','ACTION:DISPLAY','DESCRIPTION:Baby shower is this Sunday at 2:00 PM','END:VALARM',
+   'BEGIN:VALARM','TRIGGER:-P1D','ACTION:DISPLAY','DESCRIPTION:Baby shower is tomorrow at 2:00 PM','END:VALARM',
+   'END:VEVENT','END:VCALENDAR'];
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([L.join('\r\n')],{type:'text/calendar'}));
+  a.download='baby-shower.ics'; document.body.appendChild(a); a.click(); a.remove();
+});
+</script>
+</body>
+</html>
